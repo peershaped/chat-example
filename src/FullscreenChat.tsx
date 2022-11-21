@@ -1,11 +1,9 @@
 import ChatClient from "./ChatClient";
 import { Link } from 'react-router-dom';
+import { accessToken } from "./accessToken";
 
 const FullscreenChat = () => {
-  // TODO: Provideworking access token
-  const chatAccessToken = JSON.parse(
-    '{"token":""}'
-  );
+
  
   const displayName = process.env.REACT_APP_DISPLAYNAME;
   const thread1 = process.env.REACT_APP_THREAD_ID_1;
@@ -17,14 +15,14 @@ const FullscreenChat = () => {
     <div className="container">
       <div className="row">
         <div className="col">
-          <h1>FullscreenChat</h1>
+          <h1>FullscreenChat page to have more focus</h1>
           <Link to="/detail">Back</Link>
         </div>
       </div>
       <div className="row">
         <div className="col">
         {
-          chatAccessToken &&
+          accessToken &&
           displayName && 
           userId &&
           mainThread &&
@@ -34,7 +32,7 @@ const FullscreenChat = () => {
             userId={userId}
             chatThreadId={thread1}
             displayName={displayName}
-            accessToken={chatAccessToken}
+            accessToken={accessToken}
           />
         )}
         </div>
